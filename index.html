@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Encore Sushi — Solana Beach, CA</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+a { color: var(--white); text-decoration: none; }
+:root {
+  --dark: #1a1209;
+  --terra: #c4622d;
+  --amber: #d4953a;
+  --cream: #fdf6ec;
+  --sand: #f0e4cc;
+  --stone: #e8dcc8;
+  --mist: #6b7280;
+  --white: #ffffff;
+  --rule: rgba(26,18,9,0.1);
+}
+html { scroll-behavior: smooth; }
+body { font-family: "DM Sans", sans-serif; background: var(--cream); color: var(--dark); -webkit-font-smoothing: antialiased; margin: 0; }
+
+/* NAV */
+nav { position: fixed; top: 0; left: 0; right: 0; z-index: 200; height: 68px; padding: 0 2.5rem; display: flex; align-items: center; justify-content: space-between; background: rgba(26,18,9,0.9); backdrop-filter: blur(20px); }
+.nav-logo { font-family: "Cormorant Garamond", serif; font-size: 22px; color: var(--white); letter-spacing: 0.06em; font-style: italic; }
+.nav-links { display: flex; gap: 2rem; list-style: none; }
+.nav-links a { font-size: 12px; font-weight: 500; color: rgba(255,255,255,0.55); text-decoration: none; letter-spacing: 0.1em; text-transform: uppercase; transition: color 0.2s; }
+.nav-links a:hover { color: var(--amber); }
+.nav-cta { background: var(--terra); color: var(--white) !important; padding: 10px 22px; font-size: 12px; font-weight: 500; text-decoration: none; letter-spacing: 0.1em; text-transform: uppercase; transition: background 0.2s; }
+.nav-cta:hover { background: #a8521f; }
+
+/* HERO — full screen, centered logo style like Hooked on Sushi */
+.hero { height: 100vh; position: relative; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; overflow: hidden; }
+.hero-bg { position: absolute; inset: 0; background: url("https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1800&q=85") center/cover no-repeat; }
+.hero-overlay { position: absolute; inset: 0; background: rgba(26,18,9,0.48); }
+.hero-content { position: relative; z-index: 2; padding: 0 2rem; }
+.hero-sub-label { font-size: 11px; font-weight: 500; letter-spacing: 0.4em; text-transform: uppercase; color: rgba(255,255,255,0.6); margin-bottom: 2rem; display: block; }
+.hero-logo { font-family: "Cormorant Garamond", serif; font-size: clamp(64px, 14vw, 160px); color: var(--white); line-height: 0.85; font-weight: 600; margin-bottom: 1.5rem; }
+.hero-logo em { font-style: italic; color: var(--amber); display: block; }
+.hero-type { font-size: 13px; font-weight: 300; letter-spacing: 0.35em; text-transform: uppercase; color: rgba(255,255,255,0.55); margin-bottom: 3.5rem; }
+.hero-btns { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+.btn-terra { background: var(--terra); color: var(--white); padding: 14px 36px; font-size: 12px; font-weight: 500; text-decoration: none; letter-spacing: 0.15em; text-transform: uppercase; transition: background 0.2s; display: inline-block; }
+.btn-terra:hover { background: #a8521f; }
+.btn-white-outline { border: 1px solid rgba(255,255,255,0.5); color: var(--white); padding: 13px 34px; font-size: 12px; font-weight: 500; text-decoration: none; letter-spacing: 0.15em; text-transform: uppercase; transition: all 0.2s; display: inline-block; }
+.btn-white-outline:hover { background: rgba(255,255,255,0.1); border-color: var(--white); }
+.btn-dark { background: var(--dark); color: var(--white); padding: 14px 36px; font-size: 12px; font-weight: 500; text-decoration: none; letter-spacing: 0.15em; text-transform: uppercase; transition: background 0.2s; display: inline-block; }
+.btn-dark:hover { background: var(--terra); }
+.btn-dark-outline { border: 1.5px solid var(--dark); color: var(--dark); padding: 13px 34px; font-size: 12px; font-weight: 500; text-decoration: none; letter-spacing: 0.15em; text-transform: uppercase; transition: all 0.2s; display: inline-block; }
+.btn-dark-outline:hover { background: var(--dark); color: var(--white); }
+.hero-scroll { position: absolute; bottom: 2.5rem; left: 50%; transform: translateX(-50%); z-index: 2; display: flex; flex-direction: column; align-items: center; gap: 8px; }
+.hero-scroll span { font-size: 10px; letter-spacing: 0.3em; text-transform: uppercase; color: rgba(255,255,255,0.4); }
+.hero-scroll-line { width: 1px; height: 40px; background: linear-gradient(to bottom, rgba(255,255,255,0.4), transparent); animation: pulse 2s ease-in-out infinite; }
+@keyframes pulse { 0%,100%{opacity:.4} 50%{opacity:1} }
+
+/* WELCOME — big centered like Hooked on Sushi */
+.welcome { background: var(--white); padding: 8rem 2rem; text-align: center; }
+.welcome-inner { max-width: 720px; margin: 0 auto; }
+.welcome-eyebrow { font-size: 11px; font-weight: 500; letter-spacing: 0.3em; text-transform: uppercase; color: var(--terra); margin-bottom: 1.5rem; display: block; }
+.welcome h2 { font-family: "Cormorant Garamond", serif; font-size: clamp(36px, 5.5vw, 64px); color: var(--dark); line-height: 1.05; margin-bottom: 1.75rem; font-weight: 600; }
+.welcome p { font-size: 18px; color: var(--mist); line-height: 1.9; font-weight: 300; margin-bottom: 3rem; }
+.welcome-btns { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+
+/* 3 FEATURES — like Hooked on Sushi's Rewards/Catering/Fundraising blocks */
+.features { display: grid; grid-template-columns: repeat(3,1fr); background: var(--sand); }
+.feature { padding: 4.5rem 3rem; text-align: center; border-right: 1px solid var(--rule); }
+.feature:last-child { border-right: none; }
+.feature-icon { font-size: 44px; margin-bottom: 1.5rem; display: block; }
+.feature-sub { font-size: 11px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--terra); margin-bottom: 0.75rem; display: block; }
+.feature h3 { font-family: "Cormorant Garamond", serif; font-size: 28px; color: var(--dark); margin-bottom: 1rem; font-weight: 600; line-height: 1.1; }
+.feature p { font-size: 15px; color: var(--mist); line-height: 1.75; font-weight: 300; margin-bottom: 2rem; }
+.feature a { font-size: 12px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--terra); text-decoration: none; transition: all 0.2s; }
+.feature a:hover { color: var(--dark); }
+
+/* TWO FOOD PHOTOS — like Hooked on Sushi's side by side food images */
+.two-photos { display: grid; grid-template-columns: 1fr 1fr; }
+.two-photo-tile { position: relative; overflow: hidden; height: 560px; }
+.two-photo-tile img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.7s ease; }
+.two-photo-tile:hover img { transform: scale(1.04); }
+.two-photo-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(26,18,9,0.85) 0%, transparent 55%); }
+.two-photo-label { position: absolute; bottom: 0; left: 0; right: 0; padding: 2.5rem; }
+.two-photo-label .tag { font-size: 10px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--amber); display: block; margin-bottom: 0.5rem; }
+.two-photo-label h3 { font-family: "Cormorant Garamond", serif; font-size: clamp(24px,3vw,36px); color: var(--white); font-weight: 600; margin-bottom: 0.5rem; line-height: 1.1; }
+.two-photo-label p { font-size: 13px; color: rgba(255,255,255,0.65); font-weight: 300; line-height: 1.6; }
+
+/* ABOUT STATEMENT — like Hooked on Sushi's "Dive In & Get Hooked" section */
+.about-statement { background: var(--white); padding: 8rem 2rem; text-align: center; }
+.about-statement-inner { max-width: 780px; margin: 0 auto; }
+.about-statement h3 { font-family: "Cormorant Garamond", serif; font-size: clamp(28px,4vw,48px); color: var(--dark); margin-bottom: 1.5rem; font-weight: 600; line-height: 1.1; }
+.about-statement p { font-size: 17px; color: var(--mist); line-height: 1.9; font-weight: 300; margin-bottom: 1.5rem; }
+.about-statement p:last-of-type { margin-bottom: 3rem; }
+
+/* TICKER */
+.ticker { background: var(--terra); padding: 14px 0; overflow: hidden; white-space: nowrap; }
+.ticker-track { display: inline-flex; animation: ticker 28s linear infinite; }
+.ticker-track span { font-size: 12px; font-weight: 500; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,255,255,0.9); padding: 0 2rem; }
+.ticker-sep { color: rgba(255,255,255,0.4) !important; padding: 0 !important; }
+@keyframes ticker { from{transform:translateX(0)} to{transform:translateX(-50%)} }
+
+/* INFO BAR */
+.info-bar { background: var(--dark); }
+.info-bar-inner { max-width: 1200px; margin: 0 auto; padding: 0 2rem; display: flex; }
+.info-cell { flex: 1; padding: 1.6rem 1rem; border-right: 1px solid rgba(255,255,255,0.07); display: flex; align-items: center; gap: 14px; }
+.info-cell:last-child { border-right: none; }
+.info-icon { font-size: 20px; flex-shrink: 0; }
+.info-label { font-size: 10px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.35); margin-bottom: 4px; }
+.info-val { font-size: 14px; color: var(--white); }
+.info-val a { color: var(--white); text-decoration: none; }
+.info-val a:hover { color: var(--amber); }
+
+/* SHARED */
+.section { padding: 6rem 2rem; }
+.container { max-width: 1100px; margin: 0 auto; }
+.eyebrow { font-size: 11px; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; color: var(--terra); margin-bottom: 1rem; display: block; }
+.section-title { font-family: "Cormorant Garamond", serif; font-size: clamp(30px,4vw,48px); line-height: 1.1; color: var(--dark); margin-bottom: 1.25rem; font-weight: 600; }
+.section-title.light { color: var(--white); }
+.section-body { font-size: 16px; color: var(--mist); line-height: 1.8; max-width: 520px; font-weight: 300; }
+.section-body.light { color: rgba(255,255,255,0.6); }
+
+/* ABOUT */
+#about { background: var(--white); }
+.about-grid { display: grid; grid-template-columns: 1fr; gap: 3rem; }
+.about-feats { margin-top: 2rem; display: flex; flex-direction: column; }
+.about-feat { display: flex; gap: 16px; padding: 1.25rem 0; border-bottom: 1px solid var(--rule); align-items: flex-start; }
+.about-feat:first-child { padding-top: 0; }
+.about-feat:last-child { border-bottom: none; }
+.feat-icon { font-size: 22px; margin-top: 2px; flex-shrink: 0; }
+.about-feat h4 { font-size: 14px; font-weight: 500; color: var(--dark); margin-bottom: 4px; }
+.about-feat p { font-size: 13px; color: var(--mist); line-height: 1.65; font-weight: 300; }
+
+/* PHOTO BREAK */
+.photo-break { height: 480px; position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center; }
+.photo-break img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.photo-break-overlay { position: absolute; inset: 0; background: rgba(26,18,9,0.55); }
+.photo-break-content { position: relative; z-index: 2; text-align: center; padding: 2rem; }
+.photo-break-content h2 { font-family: "Cormorant Garamond", serif; font-size: clamp(32px,5vw,60px); color: var(--white); line-height: 1.1; margin-bottom: 1rem; font-weight: 600; }
+.photo-break-content p { font-size: 15px; color: rgba(255,255,255,0.7); font-weight: 300; max-width: 480px; margin: 0 auto 2rem; line-height: 1.7; }
+
+/* MENU */
+#menu { background: var(--white); }
+#menu .eyebrow { color: var(--terra); }
+#menu .section-title { color: var(--dark); }
+.menu-coming { display: inline-flex; align-items: center; gap: 8px; background: var(--terra); color: var(--white); font-size: 11px; font-weight: 500; letter-spacing: 0.15em; text-transform: uppercase; padding: 8px 18px; margin-bottom: 3rem; }
+.menu-intro { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: end; margin-bottom: 4rem; }
+.menu-intro-right { text-align: right; }
+.menu-intro-right p { font-size: 14px; color: var(--mist); font-weight: 300; line-height: 1.8; }
+.menu-cat-wrap { margin-bottom: 4rem; }
+.menu-cat-header { display: flex; align-items: center; gap: 1.5rem; margin-bottom: 1.5rem; }
+.menu-cat-header::after { content: ""; flex: 1; height: 1px; background: var(--rule); }
+.menu-cat-title { font-family: "Cormorant Garamond", serif; font-size: 13px; font-weight: 600; letter-spacing: 0.25em; text-transform: uppercase; color: var(--amber); white-space: nowrap; }
+.menu-items { display: grid; grid-template-columns: repeat(2,1fr); gap: 1px; background: var(--rule); border: 1px solid var(--rule); overflow: hidden; margin-bottom: 0.5rem; }
+.menu-items .menu-item:last-child:nth-child(odd) { grid-column: span 2; }
+.menu-item { background: var(--cream); padding: 2rem; transition: background 0.25s; position: relative; overflow: hidden; }
+.menu-item::before { content: ""; position: absolute; bottom: 0; left: 0; right: 0; height: 1px; background: var(--terra); transform: scaleX(0); transform-origin: left; transition: transform 0.3s ease; }
+.menu-item:hover { background: var(--sand); }
+.menu-item:hover::before { transform: scaleX(1); }
+.menu-item-top { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; margin-bottom: 0.6rem; }
+.menu-item-name { font-family: "Cormorant Garamond", serif; font-size: 22px; color: var(--dark); font-weight: 600; }
+.menu-item-price { font-size: 15px; font-weight: 500; color: var(--amber); white-space: nowrap; }
+.menu-item-desc { font-size: 13px; color: var(--mist); line-height: 1.7; font-weight: 300; }
+.menu-note { font-size: 12px; color: var(--mist); font-style: italic; margin-bottom: 1.25rem; }
+.menu-cta { text-align: center; padding: 3rem 0 1rem; }
+.menu-cta p { font-size: 14px; color: var(--mist); margin-bottom: 1.5rem; font-weight: 300; }
+
+/* BAR */
+#bar { background: var(--dark); position: relative; overflow: hidden; padding: 0; }
+.bar-hero { position: relative; height: 70vh; min-height: 500px; overflow: hidden; display: flex; align-items: flex-end; }
+.bar-hero img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; filter: brightness(0.6) saturate(1.2); }
+.bar-hero-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(26,18,9,0.97) 0%, rgba(26,18,9,0.3) 100%); }
+.bar-hero-content { position: relative; z-index: 2; padding: 4rem 5rem; max-width: 700px; }
+.bar-hero-content .eyebrow { color: var(--amber); }
+.bar-hero-content h2 { font-family: "Cormorant Garamond", serif; font-size: clamp(44px,6vw,80px); color: var(--white); line-height: 1.0; margin-bottom: 1rem; font-weight: 600; }
+.bar-hero-content h2 em { font-style: italic; color: var(--amber); }
+.bar-hero-content p { font-size: 16px; color: rgba(255,255,255,0.6); line-height: 1.8; font-weight: 300; max-width: 480px; }
+.bar-drinks-strip { background: var(--dark); display: grid; grid-template-columns: repeat(4,1fr); border-top: 1px solid rgba(255,255,255,0.06); }
+.bar-drink-tile { padding: 3rem 2.5rem; border-right: 1px solid rgba(255,255,255,0.06); position: relative; overflow: hidden; transition: background 0.3s; }
+.bar-drink-tile:last-child { border-right: none; }
+.bar-drink-tile::before { content: ""; position: absolute; bottom: 0; left: 0; right: 0; height: 2px; background: var(--terra); transform: scaleX(0); transform-origin: left; transition: transform 0.35s ease; }
+.bar-drink-tile:hover { background: rgba(255,255,255,0.03); }
+.bar-drink-tile:hover::before { transform: scaleX(1); }
+.bar-drink-num { font-family: "Cormorant Garamond", serif; font-size: 56px; color: rgba(255,255,255,0.06); font-weight: 600; line-height: 1; margin-bottom: -0.5rem; }
+.bar-drink-icon { font-size: 32px; margin-bottom: 1.25rem; display: block; }
+.bar-drink-tile h4 { font-family: "Cormorant Garamond", serif; font-size: 24px; color: var(--white); margin-bottom: 0.6rem; font-weight: 600; line-height: 1.1; }
+.bar-drink-tag { font-size: 10px; font-weight: 500; letter-spacing: 0.15em; text-transform: uppercase; color: var(--amber); display: block; margin-bottom: 0.75rem; }
+.bar-drink-tile p { font-size: 13px; color: rgba(255,255,255,0.4); line-height: 1.7; font-weight: 300; }
+.bar-tagline { background: var(--terra); padding: 3.5rem 2rem; text-align: center; }
+.bar-tagline h3 { font-family: "Cormorant Garamond", serif; font-size: clamp(22px,3.5vw,42px); color: var(--white); font-style: italic; font-weight: 400; line-height: 1.2; }
+
+/* REVIEWS */
+#reviews { background: var(--sand); }
+.reviews-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.5rem; margin-top: 3rem; }
+.review-card { background: var(--white); padding: 2rem; position: relative; }
+.review-card::before { content: "\201C"; position: absolute; top: -8px; left: 1.5rem; font-family: "Cormorant Garamond", serif; font-size: 80px; color: var(--terra); line-height: 1; opacity: 0.2; }
+.review-stars { color: var(--terra); font-size: 13px; letter-spacing: 3px; margin-bottom: 1rem; }
+.review-text { font-size: 14px; color: var(--mist); line-height: 1.8; font-style: italic; margin-bottom: 1.25rem; font-weight: 300; }
+.review-author { font-size: 12px; font-weight: 500; color: var(--dark); }
+.review-source { font-size: 11px; color: #9aaab2; margin-top: 2px; }
+
+/* RESERVATIONS */
+#reservations { background: var(--white); }
+.res-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; }
+.res-row { display: flex; gap: 16px; align-items: flex-start; padding: 1.5rem 0; border-bottom: 1px solid var(--rule); }
+.res-row:last-child { border-bottom: none; }
+.res-row-icon { width: 40px; height: 40px; background: var(--sand); display: flex; align-items: center; justify-content: center; font-size: 18px; flex-shrink: 0; }
+.res-row-label { font-size: 10px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(26,18,9,0.4); margin-bottom: 5px; }
+.res-row-val { font-size: 15px; color: var(--dark); }
+.res-row-val a { color: var(--dark); text-decoration: none; }
+.res-row-val a:hover { color: var(--terra); }
+.hours-list { display: flex; flex-direction: column; gap: 4px; margin-top: 2px; }
+.hours-row { display: flex; justify-content: space-between; font-size: 13px; gap: 2rem; }
+.hours-day { color: var(--mist); font-weight: 300; }
+.hours-time { color: var(--dark); font-weight: 500; }
+.res-form { display: flex; flex-direction: column; gap: 1rem; }
+.res-form input, .res-form select, .res-form textarea { width: 100%; padding: 13px 16px; border: 1px solid var(--rule); font-family: "DM Sans", sans-serif; font-size: 14px; color: var(--dark); background: var(--cream); outline: none; transition: border-color 0.2s; appearance: none; }
+.res-form input:focus, .res-form select:focus, .res-form textarea:focus { border-color: var(--terra); }
+.res-form textarea { min-height: 100px; resize: vertical; }
+.res-form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+.res-form button { background: var(--dark); color: var(--white); border: none; padding: 15px 32px; font-family: "DM Sans", sans-serif; font-size: 12px; font-weight: 500; cursor: pointer; letter-spacing: 0.15em; text-transform: uppercase; transition: background 0.2s; align-self: flex-start; }
+.res-form button:hover { background: var(--terra); }
+
+/* FOOTER */
+footer { background: var(--dark); padding: 3.5rem 2rem; text-align: center; }
+.footer-logo { font-family: "Cormorant Garamond", serif; font-size: 30px; color: var(--white); margin-bottom: 0.5rem; display: block; font-style: italic; }
+.footer-tagline { font-size: 11px; color: rgba(255,255,255,0.3); letter-spacing: 0.25em; text-transform: uppercase; margin-bottom: 1.5rem; }
+.footer-line { width: 36px; height: 1px; background: var(--terra); margin: 1.5rem auto; }
+.footer-info { font-size: 13px; color: rgba(255,255,255,0.35); line-height: 2.2; }
+.footer-info a { color: rgba(255,255,255,0.35); text-decoration: none; }
+.footer-info a:hover { color: var(--amber); }
+
+@media (max-width: 900px) {
+  .features, .two-photos { grid-template-columns: 1fr; }
+  .two-photo-tile { height: 320px; }
+  .res-grid, .menu-intro { grid-template-columns: 1fr; gap: 2rem; }
+  .menu-intro-right { text-align: left; }
+  .bar-drinks-strip { grid-template-columns: 1fr 1fr; }
+  .bar-hero-content { padding: 2.5rem 1.5rem; }
+  .reviews-grid { grid-template-columns: 1fr; }
+  .nav-links { display: none; }
+  .res-form-row { grid-template-columns: 1fr; }
+  .info-bar-inner { flex-wrap: wrap; }
+  .info-cell { flex: 1 1 40%; border-right: none; border-bottom: 1px solid rgba(255,255,255,0.07); }
+}
+@media (prefers-reduced-motion: reduce) { *, .ticker-track { animation: none !important; transition: none !important; } }
+
+  /* Welcome divider */
+  .welcome-divider { width: 60px; height: 2px; background: var(--terra); margin: 0 auto 2rem; }
+  .welcome h2 em { font-style: italic; color: var(--terra); }
+
+  /* About stats */
+  .about-stats { display: flex; align-items: center; justify-content: center; gap: 2rem; margin-bottom: 3rem; flex-wrap: wrap; }
+  .about-stat { text-align: center; }
+  .about-stat-num { font-family: "Cormorant Garamond", serif; font-size: 36px; color: var(--terra); font-weight: 600; line-height: 1; }
+  .about-stat-label { font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--mist); margin-top: 6px; }
+  .about-stat-divider { width: 1px; height: 50px; background: var(--rule); }
+  .about-statement h3 em { font-style: italic; color: var(--terra); }
+
+  /* Menu highlights */
+  .menu-highlights { display: flex; flex-direction: column; gap: 0.75rem; margin-top: 1.25rem; }
+  .menu-highlight { font-size: 14px; color: var(--mist); font-weight: 300; display: flex; align-items: center; gap: 8px; }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <span class="nav-logo">The Encore Sushi</span>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#menu">Menu</a></li>
+    <li><a href="#bar">Bar</a></li>
+    <li><a href="#reviews">Reviews</a></li>
+    <li><a href="#reservations">Reserve</a></li>
+  </ul>
+  <a class="nav-cta" href="#reservations">Reserve a Table</a>
+</nav>
+
+<!-- HERO — centered logo, minimal text, big beach photo -->
+<div class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <span class="hero-sub-label">Solana Beach, California</span>
+    <div class="hero-logo">The<br><em>Encore</em></div>
+    <p class="hero-type">Fresh Sushi &nbsp;&nbsp;·&nbsp;&nbsp; Craft Bar &nbsp;&nbsp;·&nbsp;&nbsp; Open Air Dining</p>
+    <div class="hero-btns">
+      <a href="#reservations" class="btn-terra">Reserve a Table</a>
+      <a href="#menu" class="btn-white-outline">View the Menu</a>
+    </div>
+  </div>
+  <div class="hero-scroll"><span>Scroll</span><div class="hero-scroll-line"></div></div>
+</div>
+
+<!-- WELCOME — big centered text like Hooked on Sushi -->
+<div class="welcome">
+  <div class="welcome-inner">
+    <span class="welcome-eyebrow">Welcome to The Encore</span>
+    <div class="welcome-divider"></div>
+    <h2>Fresh sushi.<br><em>Craft bar.</em><br>Solana Beach.</h2>
+    <p>Owner Chris West brought the best sushi chefs in San Diego to 112 S Cedros Ave — right in the heart of Solana Beach. Roll-up doors open to the California breeze, the fish is incredibly fresh, and the bar keeps the good times going all night.</p>
+    <div class="welcome-btns">
+      <a href="#reservations" class="btn-dark">Reserve a Table</a>
+      <a href="#menu" class="btn-dark-outline">View the Menu</a>
+    </div>
+  </div>
+</div>
+
+<!-- 3 FEATURES — like Hooked on Sushi's feature blocks -->
+<div class="features">
+  <div class="feature">
+    <span class="feature-icon">🐟</span>
+    <span class="feature-sub">San Diego's finest</span>
+    <h3>The Freshest Fish</h3>
+    <p>One mission from day one — the highest quality fish, the best chefs in San Diego, and the craft to do it justice in every bite.</p>
+    <a href="#menu">See the menu →</a>
+  </div>
+  <div class="feature">
+    <span class="feature-icon">🌊</span>
+    <span class="feature-sub">Steps from the shore</span>
+    <h3>Open Air Dining</h3>
+    <p>Roll-up doors open wide onto Cedros Ave — warm evenings, ocean air, and the energy of Solana Beach right outside your table.</p>
+    <a href="#reservations">Reserve a table →</a>
+  </div>
+  <div class="feature">
+    <span class="feature-icon">🍺</span>
+    <span class="feature-sub">Beer · Sake · Wine · Cocktails</span>
+    <h3>Craft Bar</h3>
+    <p>One of the best bar programs at any sushi restaurant in San Diego — cold drafts, premium sake, wine, and cocktails made to pair.</p>
+    <a href="#bar">Explore the bar →</a>
+  </div>
+</div>
+
+<!-- TWO BIG FOOD PHOTOS — like Hooked on Sushi's side by side food images -->
+<div class="two-photos">
+  <div class="two-photo-tile">
+    <img src="https://res.cloudinary.com/xtlbpruj/image/upload/v1784412197/Screenshot_2026-07-18_at_2.48.59_PM_mnb9tm.png" alt="Mic Drop Roll and Crowd Surfer Roll">
+    <div class="two-photo-overlay"></div>
+    <div class="two-photo-label">
+      <span class="tag">Signature Roll</span>
+      <h3>The Mic Drop</h3>
+      <p>Bluefin tuna · avocado · shrimp tempura · micro greens · sweet soy drizzle — $21</p>
+    </div>
+  </div>
+  <div class="two-photo-tile">
+    <img src="https://res.cloudinary.com/xtlbpruj/image/upload/v1784412207/Screenshot_2026-07-18_at_2.49.18_PM_wfpdjl.png" alt="Bluefin Tuna Hand Roll and Hamachi Nigiri">
+    <div class="two-photo-overlay"></div>
+    <div class="two-photo-label">
+      <span class="tag">Hand Roll & Nigiri</span>
+      <h3>Bluefin Tuna Hand Roll</h3>
+      <p>Chunky bluefin · masago · chili sesame oil · sriracha · sesame seeds — $9</p>
+    </div>
+  </div>
+</div>
+
+<!-- ABOUT STATEMENT — like Hooked on Sushi's "Dive In" text section -->
+<div class="about-statement">
+  <div class="about-statement-inner">
+    <div class="about-stats">
+      <div class="about-stat"><div class="about-stat-num">5.0</div><div class="about-stat-label">Google & Yelp</div></div>
+      <div class="about-stat-divider"></div>
+      <div class="about-stat"><div class="about-stat-num">★★★★★</div><div class="about-stat-label">Every review</div></div>
+      <div class="about-stat-divider"></div>
+      <div class="about-stat"><div class="about-stat-num">Aug '26</div><div class="about-stat-label">Grand opening</div></div>
+    </div>
+    <h3>A new kind of sushi spot<br><em>in Solana Beach</em></h3>
+    <p>Chris West took over the former Kai Ola space on Cedros Ave, completely transformed it, and opened with one clear mission — the freshest, highest quality fish in San Diego, served in a space that feels as good as it tastes. Roll-up doors, warm lighting, and a bar that could hold its own anywhere in the county.</p>
+    <p>This is just the soft opening. The full grand opening menu drops in August 2026 — and if the preview is anything to go on, it's going to be worth the wait.</p>
+    <a href="#reservations" class="btn-dark">Reserve Your Table</a>
+  </div>
+</div>
+
+<!-- TICKER -->
+<div class="ticker">
+  <div class="ticker-track">
+    <span>Mic Drop Roll</span><span class="ticker-sep">·</span><span>Crowd Surfer</span><span class="ticker-sep">·</span><span>Bluefin Tuna Hand Roll</span><span class="ticker-sep">·</span><span>Hamachi Nigiri</span><span class="ticker-sep">·</span><span>Chu-Toro</span><span class="ticker-sep">·</span><span>NZ King Salmon</span><span class="ticker-sep">·</span><span>Craft Bar</span><span class="ticker-sep">·</span><span>Open Air · Solana Beach CA</span><span class="ticker-sep">·</span><span>Grand Opening August 2026</span><span class="ticker-sep">·</span>
+    <span>Mic Drop Roll</span><span class="ticker-sep">·</span><span>Crowd Surfer</span><span class="ticker-sep">·</span><span>Bluefin Tuna Hand Roll</span><span class="ticker-sep">·</span><span>Hamachi Nigiri</span><span class="ticker-sep">·</span><span>Chu-Toro</span><span class="ticker-sep">·</span><span>NZ King Salmon</span><span class="ticker-sep">·</span><span>Craft Bar</span><span class="ticker-sep">·</span><span>Open Air · Solana Beach CA</span><span class="ticker-sep">·</span><span>Grand Opening August 2026</span><span class="ticker-sep">·</span>
+  </div>
+</div>
+
+<!-- INFO BAR -->
+<div class="info-bar">
+  <div class="info-bar-inner">
+    <div class="info-cell"><span class="info-icon">📍</span><div><div class="info-label">Location</div><div class="info-val">112 S Cedros Ave, Solana Beach</div></div></div>
+    <div class="info-cell"><span class="info-icon">🕙</span><div><div class="info-label">Hours Today</div><div class="info-val">Open · Closes 10 PM</div></div></div>
+    <div class="info-cell"><span class="info-icon">📞</span><div><div class="info-label">Phone</div><div class="info-val"><a href="tel:7602070435">(760) 207-0435</a></div></div></div>
+    <div class="info-cell"><span class="info-icon">★</span><div><div class="info-label">Rating</div><div class="info-val">5.0 · Google & Yelp</div></div></div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<div class="about section" id="about">
+  <div class="container">
+    <div class="about-grid" style="grid-template-columns:1fr;">
+        <div>
+          <span class="eyebrow">Now open · Grand opening August 2026</span>
+          <h2 class="section-title">Solana Beach's newest sushi experience</h2>
+          <p class="section-body">Owner Chris West took over the former Kai Ola space on Cedros Ave, completely transformed it, and brought in the best sushi chefs in San Diego. Roll-up doors open wide onto Cedros — sea breeze, warm nights, and the energy of Solana Beach all around you.</p>
+          <div class="about-feats">
+            <div class="about-feat"><span class="feat-icon">🐟</span><div><h4>The best fish in San Diego</h4><p>Chris's mission from day one — the highest quality fish, the best chefs, every single time.</p></div></div>
+            <div class="about-feat"><span class="feat-icon">🌊</span><div><h4>Roll-up doors open to Cedros Ave</h4><p>The entire front opens up — warm evenings, ocean air, and the Cedros Design District right outside.</p></div></div>
+            <div class="about-feat"><span class="feat-icon">🍱</span><div><h4>Full menu coming August 2026</h4><p>Soft opening now with a focused preview menu. Grand opening drops in August.</p></div></div>
+          </div>
+        </div>
+      </div>
+
+<!-- PHOTO BREAK 1 -->
+<div class="photo-break">
+  <img src="https://res.cloudinary.com/xtlbpruj/image/upload/v1784412207/Screenshot_2026-07-18_at_2.49.18_PM_wfpdjl.png" alt="Solana Beach">
+  <div class="photo-break-overlay"></div>
+  <div class="photo-break-content">
+    <h2>A new experience in Solana Beach</h2>
+    <p>Steps from the Solana Beach shore — great sushi, cold drinks, doors wide open to the California sun.</p>
+    <a href="#reservations" class="btn-gold">Book your table</a>
+  </div>
+</div>
+
+<!-- MENU -->
+<div class="section" id="menu">
+  <div class="container">
+    <div class="menu-intro">
+      <div>
+        <span class="section-tag">Soft opening preview</span>
+        <h2 class="section-title">The Menu</h2>
+      </div>
+      <div class="menu-intro-right">
+        <div class="menu-coming">★ Full menu arriving August 2026</div>
+        <p>A preview of what's to come. Every item sourced with intention,<br>prepared by the best sushi chefs in San Diego.</p>
+      </div>
+    </div>
+
+    <!-- OPENERS -->
+    <div class="menu-cat-wrap">
+      <div class="menu-cat-header"><span class="menu-cat-title">Openers</span></div>
+      <div class="menu-items">
+        <div class="menu-item">
+          <div class="menu-item-top"><span class="menu-item-name">Miso Soup</span><span class="menu-item-price">$5</span></div>
+          <p class="menu-item-desc">Classic house miso — the perfect way to start.</p>
+        </div>
+        <div class="menu-item">
+          <div class="menu-item-top"><span class="menu-item-name">Edamame, Sea Salt</span><span class="menu-item-price">$5</span></div>
+          <p class="menu-item-desc">Steamed edamame finished with a generous pinch of sea salt.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- NIGIRI & SASHIMI -->
+    <div class="menu-cat-wrap">
+      <div class="menu-cat-header"><span class="menu-cat-title">Nigiri & Sashimi</span></div>
+      <p class="menu-note">2 pc Nigiri &nbsp;/&nbsp; 3 pc Sashimi</p>
+      <div class="menu-items">
+        <div class="menu-item">
+          <div class="menu-item-top"><span class="menu-item-name">Bluefin Tuna</span><span class="menu-item-price">$13 / $15</span></div>
+          <p class="menu-item-desc">Premium bluefin — clean, rich, unmistakable.</p>
+        </div>
+        <div class="menu-item">
+          <div class="menu-item-top"><span class="menu-item-name">Chu-Toro</span><span class="menu-item-price">$16 / $19</span></div>
+          <p class="menu-item-desc">Medium fatty tuna belly — buttery, melt-in-your-mouth.</p>
+        </div>
+        <div class="menu-item">
+          <div class="menu-item-top"><span class="menu-item-name">Hamachi (Yellowtail)</span><span class="menu-item-price">$12 / $15</span></div>
+          <p class="menu-item-desc">Silky, mild yellowtail — a classic for good reason.</p>
+        </div>
+        <div class="menu-item">
+          <div class="menu-item-top"><span class="menu-item-name">Salmon (Faroe Islands)</span><span class="menu-item-price">$11 / $14</span></div>
+          <p class="menu-item-desc">Rich, sustainably sourced Faroe Islands salmon.</p>
+        </div>
+        <div class="menu-item">
+          <div class="menu-item-top"><span class="menu-item-name">New Zealand King Salmon</span><span class="menu-item-price">$15 / $18</span></div>
+          <p class="menu-item-desc">Premium King salmon — richer and fattier than Atlantic varieties.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ROLLS -->
+    <div class="menu-cat-wrap">
+      <div class="menu-cat-header"><span class="menu-cat-title">Rolls</span></div>
+      <div class="menu-items">
+        <div class="menu-item">
+          <div class="menu-item-top"><span class="menu-item-name">Mic Drop</span><span class="menu-item-price">$21</span></div>
+          <p class="menu-item-desc">Bluefin tuna, avocado, shrimp tempura, cucumber, micro greens, masago, sesame seeds, fried onions, sweet soy drizzle.</p>
+        </div>
+        <div class="menu-item">
+          <div class="menu-item-top"><span class="menu-item-name">The Crowd Surfer</span><span class="menu-item-price">$21</span></div>
+          <p class="menu-item-desc">Yellowtail and fresh salmon on top of a California roll with thin-sliced lemon and jalapeño, sprinkle of sea salt.</p>
+        </div>
+        <div class="menu-item">
+          <div class="menu-item-top"><span class="menu-item-name">Bluefin Tuna Hand Roll</span><span class="menu-item-price">$9</span></div>
+          <p class="menu-item-desc">Chopped chunky bluefin tuna with masago, chili sesame oil, sriracha, sesame seeds.</p>
+        </div>
+        <div class="menu-item">
+          <div class="menu-item-top"><span class="menu-item-name">Cali Classic</span><span class="menu-item-price">$12</span></div>
+          <p class="menu-item-desc">Avocado, cucumber, Alaska pollock krab.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- DRINKS -->
+    <div class="menu-cat-wrap">
+      <div class="menu-cat-header"><span class="menu-cat-title">Drinks</span></div>
+      <div class="menu-items">
+        <div class="menu-item">
+          <div class="menu-item-top"><span class="menu-item-name">Soft Drinks</span><span class="menu-item-price">$4</span></div>
+          <p class="menu-item-desc">Coca-Cola · Coke Zero · Sprite · Dr Pepper · Pellegrino Sparkling Water</p>
+        </div>
+        <div class="menu-item">
+          <div class="menu-item-top"><span class="menu-item-name">Japanese Soda · Ramune</span><span class="menu-item-price">$7</span></div>
+          <p class="menu-item-desc">Imported Japanese sodas including the iconic Ramune marble bottle.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="menu-cta">
+      <p>Wine, beer, sake, and cocktails available — ask your server for today's drink specials.</p>
+      <a href="#reservations" class="btn-terracotta">Reserve a Table</a>
+    </div>
+  </div>
+</div>
+
+<!-- BAR -->
+<div id="bar">
+  <!-- Full bleed bar photo hero -->
+  <div class="bar-hero">
+    <img src="https://res.cloudinary.com/xtlbpruj/image/upload/v1784412619/Screenshot_2026-07-18_at_3.10.04_PM_vgifps.png" alt="The Encore bar">
+    <div class="bar-hero-overlay"></div>
+    <div class="bar-hero-content">
+      <span class="section-tag">The bar</span>
+      <h2>Cold drinks.<br><em>Warm nights.</em></h2>
+      <p>One of the best bar programs at any sushi restaurant in San Diego — exceptional draft beer, curated sake, wine, and cocktails that pair perfectly with the freshest fish on the menu. Doors wide open to Cedros Ave.</p>
+    </div>
+  </div>
+
+  <!-- 4 drink tiles -->
+  <div class="bar-drinks-strip">
+    <div class="bar-drink-tile">
+      <div class="bar-drink-num">01</div>
+      <span class="bar-drink-icon">🍺</span>
+      <span class="bar-drink-tag">On tap</span>
+      <h4>Draft Beer</h4>
+      <p>One of the finest rotating draft selections you'll find at any sushi spot in SD. Always cold, always fresh.</p>
+    </div>
+    <div class="bar-drink-tile">
+      <div class="bar-drink-num">02</div>
+      <span class="bar-drink-icon">🍶</span>
+      <span class="bar-drink-tag">Japanese tradition</span>
+      <h4>Sake</h4>
+      <p>A curated sake list spanning light and floral to rich and earthy. Served cold or warm — your call.</p>
+    </div>
+    <div class="bar-drink-tile">
+      <div class="bar-drink-num">03</div>
+      <span class="bar-drink-icon">🍹</span>
+      <span class="bar-drink-tag">House crafted</span>
+      <h4>Cocktails</h4>
+      <p>Japanese-inspired cocktails with yuzu, shiso, and ginger — built to pair with every bite on the menu.</p>
+    </div>
+    <div class="bar-drink-tile">
+      <div class="bar-drink-num">04</div>
+      <span class="bar-drink-icon">🍷</span>
+      <span class="bar-drink-tag">Curated selection</span>
+      <h4>Wine</h4>
+      <p>A thoughtful wine list chosen specifically to complement the freshest fish and bold flavors on the menu.</p>
+    </div>
+  </div>
+
+  <!-- Bar tagline -->
+  <div class="bar-tagline">
+    <h3>"The best bar program at any sushi restaurant in San Diego."</h3>
+  </div>
+</div>
+
+<!-- PHOTO BREAK 2 -->
+<div class="photo-break">
+  <img src="https://res.cloudinary.com/xtlbpruj/image/upload/v1784412197/Screenshot_2026-07-18_at_2.48.59_PM_mnb9tm.png" alt="Mic Drop and Crowd Surfer Roll">
+  <div class="photo-break-overlay"></div>
+  <div class="photo-break-content">
+    <h2>The Mic Drop Roll</h2>
+    <p>Bluefin tuna · avocado · shrimp tempura · micro greens · sweet soy drizzle</p>
+    <a href="#reservations" class="btn-gold">Come try it</a>
+  </div>
+</div>
+
+<!-- REVIEWS -->
+<div class="reviews-section section" id="reviews">
+  <div class="container">
+    <span class="eyebrow">Guest reviews</span>
+    <h2 class="section-title">What people are saying</h2>
+    <div class="reviews-grid">
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">Today is the soft opening. We met Chris West, the owner — it is beautiful. The focus is on having the best quality fish and he has the best sushi chefs in San Diego. Today's menu was limited but fantastic. Great staff, atmosphere with roll up doors so it is open to Cedros. Definitely coming back.</p>
+        <div class="review-author">Andrew S.</div>
+        <div class="review-source">First review · Soft opening · Yelp</div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">Stopped in for dinner and was really impressed. The sushi was incredibly fresh, and you can tell they take pride in what they serve. They also have one of the best beer selections on draft that I've seen at a sushi restaurant.</p>
+        <div class="review-author">Salvador C.</div>
+        <div class="review-source">Dine in · Dinner · Google</div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">As the first customers, my boyfriend and I had an absolutely wonderful experience! The sushi was incredibly fresh, delicious, and beautifully prepared. The owner and staff were so kind, welcoming, and attentive.</p>
+        <div class="review-author">Kari V.</div>
+        <div class="review-source">Dine in · Google</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- RESERVATIONS -->
+<div class="res-section section" id="reservations">
+  <div class="container">
+    <div class="res-grid">
+      <div>
+        <span class="eyebrow">Reservations</span>
+        <h2 class="section-title">Reserve your table</h2>
+        <p class="section-body" style="margin-bottom:2.5rem;">Book ahead and we'll have everything ready. Walk-ins always welcome too.</p>
+        <div class="res-details">
+          <div class="res-row">
+            <div class="res-row-icon">📍</div>
+            <div>
+              <div class="res-row-label">Address</div>
+              <div class="res-row-val"><a href="https://www.google.com/maps/dir/?api=1&destination=112+S+Cedros+Ave+Solana+Beach+CA+92075" target="_blank" rel="noopener">112 S Cedros Ave, Solana Beach, CA 92075 ↗</a></div>
+            </div>
+          </div>
+          <div class="res-row">
+            <div class="res-row-icon">📞</div>
+            <div>
+              <div class="res-row-label">Phone</div>
+              <div class="res-row-val"><a href="tel:7602070435">(760) 207-0435</a></div>
+            </div>
+          </div>
+          <div class="res-row">
+            <div class="res-row-icon">🕙</div>
+            <div>
+              <div class="res-row-label">Hours</div>
+              <div class="res-row-val">
+                <div class="hours-list">
+                  <div class="hours-row"><span class="hours-day">Mon – Thu</span><span class="hours-time">3:00 – 9:00 PM</span></div>
+                  <div class="hours-row"><span class="hours-day">Fri – Sat</span><span class="hours-time">12:00 – 10:00 PM</span></div>
+                  <div class="hours-row"><span class="hours-day">Sunday</span><span class="hours-time">12:00 – 9:00 PM</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <form class="res-form" action="https://api.web3forms.com/submit" method="POST">
+        <input type="hidden" name="access_key" value="5b3b14e7-bca9-4177-bc68-d0e7868ec31c">
+        <input type="hidden" name="subject" value="New Reservation Request - The Encore Sushi">
+        <input type="hidden" name="to" value="Chris@encoresushi.com">
+        <input type="text" name="name" placeholder="Your name" required>
+        <input type="email" name="email" placeholder="Email address" required>
+        <input type="tel" name="phone" placeholder="Phone number">
+        <div class="res-form-row">
+          <input type="date" name="date" required>
+          <input type="time" name="time" required>
+        </div>
+        <select name="party_size">
+          <option value="" disabled selected>Party size</option>
+          <option>1 guest</option>
+          <option>2 guests</option>
+          <option>3 guests</option>
+          <option>4 guests</option>
+          <option>5 guests</option>
+          <option>6+ guests</option>
+        </select>
+        <textarea name="notes" placeholder="Any special requests or notes?"></textarea>
+        <button type="submit">Request Reservation</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <span class="footer-logo">The Encore Sushi</span>
+  <div class="footer-tagline">"The Encore is where it gets good."</div>
+  <div class="footer-divider"></div>
+  <div class="footer-info">
+    112 S Cedros Ave, Solana Beach, CA 92075 &nbsp;·&nbsp; <a href="tel:7602070435">(760) 207-0435</a><br>
+    Mon–Thu 3–9PM &nbsp;·&nbsp; Fri–Sat 12–10PM &nbsp;·&nbsp; Sun 12–9PM<br><br>
+    © 2025 The Encore Sushi. All rights reserved.
+  </div>
+</footer>
+
+
+<script>
+  let current = 0;
+  const slides = document.querySelectorAll('.hero-slide');
+  const dots = document.querySelectorAll('.hero-dot');
+  function goSlide(n) {
+    slides[current].classList.remove('active');
+    dots[current].classList.remove('active');
+    current = n;
+    slides[current].classList.add('active');
+    dots[current].classList.add('active');
+  }
+  setInterval(() => goSlide((current + 1) % slides.length), 5000);
+</script>
+
+
+<script>
+  // Slideshow not needed — single hero
+</script>
+
+
+</body>
+</html>
