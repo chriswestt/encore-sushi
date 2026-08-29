@@ -644,10 +644,8 @@ footer { background: var(--dark); padding: 3.5rem 2rem; text-align: center; }
           </div>
         </div>
       </div>
-      <form class="res-form" action="https://api.web3forms.com/submit" method="POST">
-        <input type="hidden" name="access_key" value="5b3b14e7-bca9-4177-bc68-d0e7868ec31c">
-        <input type="hidden" name="subject" value="New Reservation Request - The Encore Sushi">
-        <input type="hidden" name="to" value="Chris@encoresushi.com">
+      <form class="res-form" action="https://forms.rawgrowth.ai/encore" method="POST">
+        <input type="text" name="website" value="" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true">
         <input type="text" name="name" placeholder="Your name" required>
         <input type="email" name="email" placeholder="Email address" required>
         <input type="tel" name="phone" placeholder="Phone number">
