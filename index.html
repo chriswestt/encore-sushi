@@ -163,29 +163,6 @@ nav { position: fixed; top: 0; left: 0; right: 0; z-index: 200; height: 68px; pa
 .menu-cta { text-align: center; padding: 3rem 0 1rem; }
 .menu-cta p { font-size: 14px; color: var(--mist); margin-bottom: 1.5rem; font-weight: 300; }
 
-/* BAR */
-#bar { background: var(--dark); position: relative; overflow: hidden; padding: 0; }
-.bar-hero { position: relative; height: 70vh; min-height: 500px; overflow: hidden; display: flex; align-items: flex-end; }
-.bar-hero img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; filter: brightness(0.6) saturate(1.2); }
-.bar-hero-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(26,18,9,0.97) 0%, rgba(26,18,9,0.3) 100%); }
-.bar-hero-content { position: relative; z-index: 2; padding: 4rem 5rem; max-width: 700px; }
-.bar-hero-content .eyebrow { color: var(--amber); }
-.bar-hero-content h2 { font-family: "Cormorant Garamond", serif; font-size: clamp(44px,6vw,80px); color: var(--white); line-height: 1.0; margin-bottom: 1rem; font-weight: 600; }
-.bar-hero-content h2 em { font-style: italic; color: var(--amber); }
-.bar-hero-content p { font-size: 16px; color: rgba(255,255,255,0.6); line-height: 1.8; font-weight: 300; max-width: 480px; }
-.bar-drinks-strip { background: var(--dark); display: grid; grid-template-columns: repeat(4,1fr); border-top: 1px solid rgba(255,255,255,0.06); }
-.bar-drink-tile { padding: 3rem 2.5rem; border-right: 1px solid rgba(255,255,255,0.06); position: relative; overflow: hidden; transition: background 0.3s; }
-.bar-drink-tile:last-child { border-right: none; }
-.bar-drink-tile::before { content: ""; position: absolute; bottom: 0; left: 0; right: 0; height: 2px; background: var(--terra); transform: scaleX(0); transform-origin: left; transition: transform 0.35s ease; }
-.bar-drink-tile:hover { background: rgba(255,255,255,0.03); }
-.bar-drink-tile:hover::before { transform: scaleX(1); }
-.bar-drink-num { font-family: "Cormorant Garamond", serif; font-size: 56px; color: rgba(255,255,255,0.06); font-weight: 600; line-height: 1; margin-bottom: -0.5rem; }
-.bar-drink-icon { font-size: 32px; margin-bottom: 1.25rem; display: block; }
-.bar-drink-tile h4 { font-family: "Cormorant Garamond", serif; font-size: 24px; color: var(--white); margin-bottom: 0.6rem; font-weight: 600; line-height: 1.1; }
-.bar-drink-tag { font-size: 10px; font-weight: 500; letter-spacing: 0.15em; text-transform: uppercase; color: var(--amber); display: block; margin-bottom: 0.75rem; }
-.bar-drink-tile p { font-size: 13px; color: rgba(255,255,255,0.4); line-height: 1.7; font-weight: 300; }
-.bar-tagline { background: var(--terra); padding: 3.5rem 2rem; text-align: center; }
-.bar-tagline h3 { font-family: "Cormorant Garamond", serif; font-size: clamp(22px,3.5vw,42px); color: var(--white); font-style: italic; font-weight: 400; line-height: 1.2; }
 
 /* REVIEWS */
 #reviews { background: var(--sand); }
@@ -233,8 +210,6 @@ footer { background: var(--dark); padding: 3.5rem 2rem; text-align: center; }
   .two-photo-tile { height: 320px; }
   .res-grid, .menu-intro { grid-template-columns: 1fr; gap: 2rem; }
   .menu-intro-right { text-align: left; }
-  .bar-drinks-strip { grid-template-columns: 1fr 1fr; }
-  .bar-hero-content { padding: 2.5rem 1.5rem; }
   .reviews-grid { grid-template-columns: 1fr; }
   .nav-links { display: none; }
   .res-form-row { grid-template-columns: 1fr; }
@@ -268,7 +243,6 @@ footer { background: var(--dark); padding: 3.5rem 2rem; text-align: center; }
   <ul class="nav-links">
     <li><a href="#about">About</a></li>
     <li><a href="#menu">Menu</a></li>
-    <li><a href="#bar">Bar</a></li>
     <li><a href="#reviews">Reviews</a></li>
     <li><a href="#reservations">Reserve</a></li>
   </ul>
@@ -282,7 +256,7 @@ footer { background: var(--dark); padding: 3.5rem 2rem; text-align: center; }
   <div class="hero-content">
     <span class="hero-sub-label">Solana Beach, California</span>
     <div class="hero-logo">The<br><em>Encore</em></div>
-    <p class="hero-type">Fresh Sushi &nbsp;&nbsp;·&nbsp;&nbsp; Craft Bar &nbsp;&nbsp;·&nbsp;&nbsp; Open Air Dining</p>
+    <p class="hero-type">Fresh Sushi &nbsp;&nbsp;·&nbsp;&nbsp; Open Air Dining &nbsp;&nbsp;·&nbsp;&nbsp; Solana Beach</p>
     <div class="hero-btns">
       <a href="#reservations" class="btn-terra">Reserve a Table</a>
       <a href="#menu" class="btn-white-outline">View the Menu</a>
@@ -296,8 +270,8 @@ footer { background: var(--dark); padding: 3.5rem 2rem; text-align: center; }
   <div class="welcome-inner">
     <span class="welcome-eyebrow">Welcome to The Encore</span>
     <div class="welcome-divider"></div>
-    <h2>Fresh sushi.<br><em>Craft bar.</em><br>Solana Beach.</h2>
-    <p>Owner Chris West brought the best sushi chefs in San Diego to 112 S Cedros Ave — right in the heart of Solana Beach. Roll-up doors open to the California breeze, the fish is incredibly fresh, and the bar keeps the good times going all night.</p>
+    <h2>Fresh sushi.<br><em>Open air.</em><br>Solana Beach.</h2>
+    <p>Owner Chris West brought the best sushi chefs in San Diego to 112 S Cedros Ave — right in the heart of Solana Beach. Roll-up doors open to the California breeze, the fish is incredibly fresh, and the good times keep going all night.</p>
     <div class="welcome-btns">
       <a href="#reservations" class="btn-dark">Reserve a Table</a>
       <a href="#menu" class="btn-dark-outline">View the Menu</a>
@@ -322,11 +296,11 @@ footer { background: var(--dark); padding: 3.5rem 2rem; text-align: center; }
     <a href="#reservations">Reserve a table →</a>
   </div>
   <div class="feature">
-    <span class="feature-icon">🍺</span>
-    <span class="feature-sub">Beer · Sake · Wine · Cocktails</span>
-    <h3>Craft Bar</h3>
-    <p>One of the best bar programs at any sushi restaurant in San Diego — cold drafts, premium sake, wine, and cocktails made to pair.</p>
-    <a href="#bar">Explore the bar →</a>
+    <span class="feature-icon">🥤</span>
+    <span class="feature-sub">Ramune · Japanese Sodas · Sparkling</span>
+    <h3>Refreshing Drinks</h3>
+    <p>Imported Japanese sodas, the iconic Ramune marble bottle, and plenty of cold refreshments made to pair with every bite.</p>
+    <a href="#menu">See the menu →</a>
   </div>
 </div>
 
@@ -363,7 +337,7 @@ footer { background: var(--dark); padding: 3.5rem 2rem; text-align: center; }
       <div class="about-stat"><div class="about-stat-num">Aug '26</div><div class="about-stat-label">Grand opening</div></div>
     </div>
     <h3>A new kind of sushi spot<br><em>in Solana Beach</em></h3>
-    <p>Chris West took over the former Kai Ola space on Cedros Ave, completely transformed it, and opened with one clear mission — the freshest, highest quality fish in San Diego, served in a space that feels as good as it tastes. Roll-up doors, warm lighting, and a bar that could hold its own anywhere in the county.</p>
+    <p>Chris West took over the former Kai Ola space on Cedros Ave, completely transformed it, and opened with one clear mission — the freshest, highest quality fish in San Diego, served in a space that feels as good as it tastes. Roll-up doors, warm lighting, and a space that could hold its own anywhere in the county.</p>
     <p>This is just the soft opening. The full grand opening menu drops in August 2026 — and if the preview is anything to go on, it's going to be worth the wait.</p>
     <a href="#reservations" class="btn-dark">Reserve Your Table</a>
   </div>
@@ -372,8 +346,8 @@ footer { background: var(--dark); padding: 3.5rem 2rem; text-align: center; }
 <!-- TICKER -->
 <div class="ticker">
   <div class="ticker-track">
-    <span>Mic Drop Roll</span><span class="ticker-sep">·</span><span>Crowd Surfer</span><span class="ticker-sep">·</span><span>Bluefin Tuna Hand Roll</span><span class="ticker-sep">·</span><span>Hamachi Nigiri</span><span class="ticker-sep">·</span><span>Chu-Toro</span><span class="ticker-sep">·</span><span>NZ King Salmon</span><span class="ticker-sep">·</span><span>Craft Bar</span><span class="ticker-sep">·</span><span>Open Air · Solana Beach CA</span><span class="ticker-sep">·</span><span>Grand Opening August 2026</span><span class="ticker-sep">·</span>
-    <span>Mic Drop Roll</span><span class="ticker-sep">·</span><span>Crowd Surfer</span><span class="ticker-sep">·</span><span>Bluefin Tuna Hand Roll</span><span class="ticker-sep">·</span><span>Hamachi Nigiri</span><span class="ticker-sep">·</span><span>Chu-Toro</span><span class="ticker-sep">·</span><span>NZ King Salmon</span><span class="ticker-sep">·</span><span>Craft Bar</span><span class="ticker-sep">·</span><span>Open Air · Solana Beach CA</span><span class="ticker-sep">·</span><span>Grand Opening August 2026</span><span class="ticker-sep">·</span>
+    <span>Mic Drop Roll</span><span class="ticker-sep">·</span><span>Crowd Surfer</span><span class="ticker-sep">·</span><span>Bluefin Tuna Hand Roll</span><span class="ticker-sep">·</span><span>Hamachi Nigiri</span><span class="ticker-sep">·</span><span>Chu-Toro</span><span class="ticker-sep">·</span><span>NZ King Salmon</span><span class="ticker-sep">·</span><span>Open Air · Solana Beach CA</span><span class="ticker-sep">·</span><span>Grand Opening August 2026</span><span class="ticker-sep">·</span>
+    <span>Mic Drop Roll</span><span class="ticker-sep">·</span><span>Crowd Surfer</span><span class="ticker-sep">·</span><span>Bluefin Tuna Hand Roll</span><span class="ticker-sep">·</span><span>Hamachi Nigiri</span><span class="ticker-sep">·</span><span>Chu-Toro</span><span class="ticker-sep">·</span><span>NZ King Salmon</span><span class="ticker-sep">·</span><span>Open Air · Solana Beach CA</span><span class="ticker-sep">·</span><span>Grand Opening August 2026</span><span class="ticker-sep">·</span>
   </div>
 </div>
 
@@ -510,60 +484,9 @@ footer { background: var(--dark); padding: 3.5rem 2rem; text-align: center; }
     </div>
 
     <div class="menu-cta">
-      <p>Wine, beer, sake, and cocktails available — ask your server for today's drink specials.</p>
+      <p>Ask your server about today's specials.</p>
       <a href="#reservations" class="btn-terracotta">Reserve a Table</a>
     </div>
-  </div>
-</div>
-
-<!-- BAR -->
-<div id="bar">
-  <!-- Full bleed bar photo hero -->
-  <div class="bar-hero">
-    <img src="https://res.cloudinary.com/xtlbpruj/image/upload/v1784412619/Screenshot_2026-07-18_at_3.10.04_PM_vgifps.png" alt="The Encore bar">
-    <div class="bar-hero-overlay"></div>
-    <div class="bar-hero-content">
-      <span class="section-tag">The bar</span>
-      <h2>Cold drinks.<br><em>Warm nights.</em></h2>
-      <p>One of the best bar programs at any sushi restaurant in San Diego — exceptional draft beer, curated sake, wine, and cocktails that pair perfectly with the freshest fish on the menu. Doors wide open to Cedros Ave.</p>
-    </div>
-  </div>
-
-  <!-- 4 drink tiles -->
-  <div class="bar-drinks-strip">
-    <div class="bar-drink-tile">
-      <div class="bar-drink-num">01</div>
-      <span class="bar-drink-icon">🍺</span>
-      <span class="bar-drink-tag">On tap</span>
-      <h4>Draft Beer</h4>
-      <p>One of the finest rotating draft selections you'll find at any sushi spot in SD. Always cold, always fresh.</p>
-    </div>
-    <div class="bar-drink-tile">
-      <div class="bar-drink-num">02</div>
-      <span class="bar-drink-icon">🍶</span>
-      <span class="bar-drink-tag">Japanese tradition</span>
-      <h4>Sake</h4>
-      <p>A curated sake list spanning light and floral to rich and earthy. Served cold or warm — your call.</p>
-    </div>
-    <div class="bar-drink-tile">
-      <div class="bar-drink-num">03</div>
-      <span class="bar-drink-icon">🍹</span>
-      <span class="bar-drink-tag">House crafted</span>
-      <h4>Cocktails</h4>
-      <p>Japanese-inspired cocktails with yuzu, shiso, and ginger — built to pair with every bite on the menu.</p>
-    </div>
-    <div class="bar-drink-tile">
-      <div class="bar-drink-num">04</div>
-      <span class="bar-drink-icon">🍷</span>
-      <span class="bar-drink-tag">Curated selection</span>
-      <h4>Wine</h4>
-      <p>A thoughtful wine list chosen specifically to complement the freshest fish and bold flavors on the menu.</p>
-    </div>
-  </div>
-
-  <!-- Bar tagline -->
-  <div class="bar-tagline">
-    <h3>"The best bar program at any sushi restaurant in San Diego."</h3>
   </div>
 </div>
 
@@ -592,7 +515,7 @@ footer { background: var(--dark); padding: 3.5rem 2rem; text-align: center; }
       </div>
       <div class="review-card">
         <div class="review-stars">★★★★★</div>
-        <p class="review-text">Stopped in for dinner and was really impressed. The sushi was incredibly fresh, and you can tell they take pride in what they serve. They also have one of the best beer selections on draft that I've seen at a sushi restaurant.</p>
+        <p class="review-text">Stopped in for dinner and was really impressed. The sushi was incredibly fresh, and you can tell they take pride in what they serve.</p>
         <div class="review-author">Salvador C.</div>
         <div class="review-source">Dine in · Dinner · Google</div>
       </div>
